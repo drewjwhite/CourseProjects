@@ -1,0 +1,5 @@
+H:\Cplus1Work\Project\Galaxy Cinemas\Common\bin\Debug\Common.dll
+H:\Cplus1Work\Project\Galaxy Cinemas\Common\bin\Debug\Common.pdb
+H:\Cplus1Work\Project\Galaxy Cinemas\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+H:\Cplus1Work\Project\Galaxy Cinemas\Common\obj\Debug\Common.dll
+H:\Cplus1Work\Project\Galaxy Cinemas\Common\obj\Debug\Common.pdb

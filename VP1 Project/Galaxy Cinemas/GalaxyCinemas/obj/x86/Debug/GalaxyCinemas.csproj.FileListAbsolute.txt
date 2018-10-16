@@ -1,0 +1,27 @@
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.exe.config
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.BookingForm.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ExportDataForm.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ImportDataForm.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ImportResultsPopup.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.MainForm.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.Properties.Resources.resources
+C:\Users\90030147\Desktop\vp1_work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.csproj.GenerateResource.Cache
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.csprojResolveAssemblyReference.cache
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.BookingForm.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ExportDataForm.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ImportDataForm.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.ImportResultsPopup.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.MainForm.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.Properties.Resources.resources
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.csproj.GenerateResource.Cache
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.exe.config
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.accdb
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.exe
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.pdb
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\Common.dll
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\Common.pdb
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.exe
+H:\Cplus1Work\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.pdb
+G:\DrewFolders\My Documents\projects\Project\Galaxy Cinemas\GalaxyCinemas\bin\Debug\GalaxyCinemas.exe.config
+G:\DrewFolders\My Documents\projects\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.exe
+G:\DrewFolders\My Documents\projects\Project\Galaxy Cinemas\GalaxyCinemas\obj\x86\Debug\GalaxyCinemas.pdb
