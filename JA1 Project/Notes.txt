@@ -1,0 +1,43 @@
+https://stackoverflow.com/questions/25109138/setter-getter-method-inheritance
+
+public interface ISalariedPerson {
+    
+    //getter and setter methods for pay period   
+    TimePeriod getTimePeriod();
+    
+    double getBaseSalary();
+    
+    Date getStartDate();
+    double getCurrentBonus();
+    void setCurrentBonus(double bonus);
+       
+    //this method should be used by all paied people
+    //to calculate the pay earned over a period of time
+    public double calculatePay() throws Exception ;
+    
+    
+    void setTimePeriod(TimePeriod timePeriod);
+    
+    //getter and setter methods for Bonuses that might be assigned 
+    //to subordinate by manager
+
+}
+
+public interface ISubordinate {
+    
+    IManager getManager();
+}
+
+
+public interface IManager extends ISalariedPerson{
+    
+    ArrayList<ISubordinate> getSubordinateList();
+    
+    double getTotalManagerBonusFund();
+
+    void setTotalManagerBonusFund(double totalManagerBonusFund);
+  
+    void applyBonus(double bonus);
+    
+    String assignBonus(ISubordinate subordinate, double bonus);
+}

@@ -1,0 +1,379 @@
+package oca.project;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+
+
+/**
+ *
+ * Form that allows user to navigate between three functional forms 
+ */
+public class MainForm extends javax.swing.JFrame {
+        
+    //array list to hold the report items
+    private ArrayList<PayrollReportItem> payrollReportItemList = new ArrayList<>();
+    private ArrayList<Person> listOfPeople2;
+
+    //Creating new instances of the forms
+    AssignBonusForm assignBonusForm;
+    PersonalDataForm personalDataForm = new PersonalDataForm(payrollReportItemList);
+    ReportForm reportForm = new ReportForm(payrollReportItemList);
+    CreatePaymentsForm createPaymentsForm = new CreatePaymentsForm(payrollReportItemList);
+ 
+    //setting up date format
+    Calendar calendar = Calendar.getInstance();
+    SimpleDateFormat dmyFormat = new SimpleDateFormat("dd/MM/yyyy");
+    Date currentFortnightlyPayPeriod;
+    Date currentMonthlyPayPeriod;
+    
+    /**
+    * Creates new form MainForm
+    * @param listOfPeople
+    */
+    public MainForm(ArrayList<Person> listOfPeople) {
+        initComponents();
+        getContentPane().setBackground(new java.awt.Color(153,204,255));
+        
+        //listOfPeople2 = new ArrayList<>();
+        //setting up first payment date for both fortnightly and weekly payments
+        String date = "01/01/2015";
+        try {
+        currentFortnightlyPayPeriod = dmyFormat.parse(date);
+        currentMonthlyPayPeriod = dmyFormat.parse(date);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        this.listOfPeople2 = listOfPeople;
+        //Create new instance of AssignBonusForm and fill combobox values
+        this.assignBonusForm = new AssignBonusForm();
+        passPersonList(listOfPeople);
+        
+        txtTest1.setText(listOfPeople2.get(10).toString());
+        txtTest2.setText(listOfPeople2.get(10).getPosition());
+        //String dateTest = staffList.get(2).getDoB().toString();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        txtTest3.setText(dateFormat.format(listOfPeople2.get(10).getDoB()));
+        
+        SalariedSubordinate ss = (SalariedSubordinate)listOfPeople2.get(10);
+        //ContractSubordinate ss = (ContractSubordinate)staffList.get(23);
+       
+        //String dateTest2 = ss.getStartDate().toString();
+        txtTest4.setText(dateFormat.format(ss.getStartDate()));
+        txtTest5.setText(ss.getManager().toString());
+        txtTest6.setText(String.valueOf(ss.getCurrentBonus()));
+        if (ss.getIsContractor() == true) {
+            txtTest7.setText("Is a contractor");
+        } 
+        else
+        {
+            txtTest7.setText("Is not a contractor");
+        }
+    
+    }
+     /**
+     * @param listOfPeople the listOfPeople to set
+     * sets list of people in the MainForm as well as PersonalDataForm 
+     * and AssignBonusForm to populate the comboBox
+     */
+    public void passPersonList(ArrayList<Person> listOfPeople) {
+        
+        assignBonusForm.setAssignBonusFormList(listOfPeople);
+        assignBonusForm.managerList();
+        
+        //System.out.println(listOfPeople.get(2).toString());
+        //System.out.println(assignBonusForm.getAssignBonusFormList().get(2).toString());
+        personalDataForm.setPersonalDataFormList(listOfPeople);
+        personalDataForm.populateCboName();
+        //reportForm.setreportFormList(listOfPeople);
+        //createPaymentsForm.setCreatePaymentsFormList(listOfPeople);
+    }
+    
+    //Testing() is not used. It contains code to test the staffList content.
+    //To use paste code into MainForm constructor.
+    public void testing() {
+        
+//        txtTest1.setText(staffList.get(10).toString());
+//        txtTest2.setText(staffList.get(10).getPosition());
+//        //String dateTest = staffList.get(2).getDoB().toString();
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        txtTest3.setText(dateFormat.format(staffList.get(10).getDoB()));
+//        
+//        SalariedSubordinate ss = (SalariedSubordinate)staffList.get(10);
+//        //ContractSubordinate ss = (ContractSubordinate)staffList.get(23);
+//       
+//        //String dateTest2 = ss.getStartDate().toString();
+//        txtTest4.setText(dateFormat.format(ss.getStartDate()));
+//        txtTest5.setText(ss.getManager().toString());
+//        txtTest6.setText(ss.getTimePeriod().toString());
+//        if (ss.getIsContractor() == true) {
+//            txtTest7.setText("Is a contractor");
+//        } 
+//        else
+//        {
+//            txtTest7.setText("Is not a contractor");
+//        }
+    }
+    
+   
+
+    
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        lblHeader = new javax.swing.JLabel();
+        btnAssignBonus = new javax.swing.JButton();
+        btnPersonalDetails = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
+        btnRunReports = new javax.swing.JButton();
+        btnCreatePayments = new javax.swing.JButton();
+        txtTest1 = new javax.swing.JTextField();
+        txtTest2 = new javax.swing.JTextField();
+        txtTest3 = new javax.swing.JTextField();
+        txtTest4 = new javax.swing.JTextField();
+        txtTest5 = new javax.swing.JTextField();
+        txtTest6 = new javax.swing.JTextField();
+        txtTest7 = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 204, 255));
+
+        lblHeader.setBackground(new java.awt.Color(204, 255, 204));
+        lblHeader.setFont(new java.awt.Font("Nyala", 1, 48)); // NOI18N
+        lblHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblHeader.setText("Best IT Payroll");
+        lblHeader.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblHeader.setOpaque(true);
+
+        btnAssignBonus.setFont(new java.awt.Font("Nyala", 0, 18)); // NOI18N
+        btnAssignBonus.setText("Assign Bonus");
+        btnAssignBonus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignBonusActionPerformed(evt);
+            }
+        });
+
+        btnPersonalDetails.setFont(new java.awt.Font("Nyala", 0, 18)); // NOI18N
+        btnPersonalDetails.setText("Personal Details and Contractor Data Entry");
+        btnPersonalDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPersonalDetailsActionPerformed(evt);
+            }
+        });
+
+        btnClose.setFont(new java.awt.Font("Nyala", 0, 18)); // NOI18N
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
+
+        btnRunReports.setFont(new java.awt.Font("Nyala", 0, 18)); // NOI18N
+        btnRunReports.setText("Run Reports");
+        btnRunReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRunReportsActionPerformed(evt);
+            }
+        });
+
+        btnCreatePayments.setFont(new java.awt.Font("Nyala", 0, 18)); // NOI18N
+        btnCreatePayments.setText("Create Payments");
+        btnCreatePayments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreatePaymentsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnPersonalDetails, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                                    .addComponent(btnAssignBonus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnCreatePayments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnRunReports, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(83, 83, 83))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTest1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtTest2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtTest6, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtTest4))
+                                        .addGap(6, 6, 6)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtTest3)
+                                    .addComponent(txtTest5)
+                                    .addComponent(txtTest7, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(132, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAssignBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPersonalDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnCreatePayments, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnRunReports, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(txtTest1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTest2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTest3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTest4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTest5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtTest6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtTest7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    
+    
+    //event handler that opens Assign Bonus form
+    //the form was initialised earlier, this only sets its visible properties
+    //it also calls methods to set values for the comboboxes on the assignBonusForm
+    private void btnAssignBonusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignBonusActionPerformed
+        this.setVisible(false);
+        assignBonusForm.setVisible(true);
+        
+    }//GEN-LAST:event_btnAssignBonusActionPerformed
+
+    
+    //event handler that opens Personal Details and Creating payments form
+    //the form was initialised earlier, this only sets its visible properties
+    //it also calls methods to set values for the comboboxes on the personalDetailsForm
+    private void btnPersonalDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonalDetailsActionPerformed
+        this.setVisible(false);
+        personalDataForm.setVisible(true);
+    }//GEN-LAST:event_btnPersonalDetailsActionPerformed
+
+    //event handler for the Close button for closing the application
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        this.dispose();       
+    }//GEN-LAST:event_btnCloseActionPerformed
+    
+
+    //event handler that opens Report form
+    //the form was initialised earlier, this only sets its visible properties
+    //it also calls methods to set values for the comboboxes on the assignBonusForm
+    private void btnRunReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunReportsActionPerformed
+        //OCAProject.openReportForm();
+    }//GEN-LAST:event_btnRunReportsActionPerformed
+
+    private void btnCreatePaymentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePaymentsActionPerformed
+        //OCAProject.openCreatePaymentsForm();
+    }//GEN-LAST:event_btnCreatePaymentsActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MainForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new MainForm().setVisible(true);
+//            }
+//        });
+//    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignBonus;
+    private javax.swing.JButton btnClose;
+    private javax.swing.JButton btnCreatePayments;
+    private javax.swing.JButton btnPersonalDetails;
+    private javax.swing.JButton btnRunReports;
+    private javax.swing.JLabel lblHeader;
+    private javax.swing.JTextField txtTest1;
+    private javax.swing.JTextField txtTest2;
+    private javax.swing.JTextField txtTest3;
+    private javax.swing.JTextField txtTest4;
+    private javax.swing.JTextField txtTest5;
+    private javax.swing.JTextField txtTest6;
+    private javax.swing.JTextField txtTest7;
+    // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the payrollReportItemList
+     */
+    public ArrayList<PayrollReportItem> getPayrollReportItemList() {
+        return payrollReportItemList;
+    }
+
+    /**
+     * @param payrollReportItemList the payrollReportItemList to set
+     */
+    public void setPayrollReportItemList(ArrayList<PayrollReportItem> payrollReportItemList) {
+        this.payrollReportItemList = payrollReportItemList;
+    }
+
+//    private static void assignBonusFormBackBtn(){
+//        this.setVisible(true);
+//        assignBonusForm.setVisible(false);
+//    }
+
+}
