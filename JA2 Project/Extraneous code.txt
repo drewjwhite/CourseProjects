@@ -1,0 +1,23 @@
+step 28/29
+try {
+    if (item.isEmpty()) {
+        results.getErrorMessages().add(lineNum + " is empty.");
+        continue;
+    } else {
+        results.setTotalRows(results.getTotalRows() + 1);
+        String[] tempColumns = item.split(",");
+        if (tempColumns.length == 2) {
+            columns[0] = tempColumns[0];
+            columns[1] = tempColumns[1];
+        } else {
+            results.setFailedRows(results.getFailedRows() + 1);
+            results.getErrorMessages().add("Error in line " + lineNum + ": Tried to add too many elements to the array!");
+                            
+        }
+        lineNum++;
+    }
+    } catch (Exception e) {
+
+    }
+
+https://www.tutorialspoint.com/java/java_string_split.htm
